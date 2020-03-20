@@ -5,9 +5,9 @@ const app = express();
 
 connectDB();
 
-app.get('/', (req, res) => {
-  res.send('this works');
-});
+app.use(express.json({ extended: false }));
+
+app.get('/', (req, res) => res.send('this works'));
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
